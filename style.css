@@ -1,0 +1,58 @@
+body{
+    margin: 0;
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    background-color: burlywood;
+    padding: 10px;
+    text-align: center;
+    color: brown;
+}
+h1{
+    font-size: 50px;
+}
+.subtitulo{
+    font-size: 40px;
+
+}
+main{
+    background-color: bisque;
+    padding: 60px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    display: flex;
+}
+.caixa{
+    background-color: coral;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 40px 30px;
+    height: 200px;
+    width: 250px;
+    border-radius: 10PX;
+    color: aliceblue;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border: 3px solid transparent;
+}
+/* ===== Efeito ao passar o mouse ===== */
+.caixa:hover{
+    border-color: brown;
+    transform: scale(1.05);
+    box-shadow:  0 8px 20px rgba(0, 0, 0, 0.3);
+}
+footer{
+    background-color: brown;
+    text-align: center;
+    color: bisque;
+    padding: 5px;
+}
+p{
+    font-size: 20px;
+}
+

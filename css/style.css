@@ -1,0 +1,622 @@
+/* =========================================================
+   EcoConecta – Folha de estilo principal
+   Abordagem mobile-first: estilos base para celular e
+   ajustes para telas maiores nas media queries do final.
+   ========================================================= */
+
+/* ---------- 1. Variáveis (cores com contraste AA) ---------- */
+:root {
+  --cor-escura: #12233A;      /* textos e fundos escuros */
+  --cor-texto: #2F3E50;       /* texto corrido */
+  --cor-verde: #12775A;       /* cor principal da marca */
+  --cor-verde-escuro: #0E5C46;
+  --cor-verde-claro: #E3EFE8;
+  --cor-laranja: #A84612;     /* destaque / foco */
+  --cor-creme: #F5F3EC;       /* fundo da página */
+  --cor-branco: #FFFDF8;      /* cartões */
+  --cor-borda: #D9D4C7;
+
+  --fonte: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --raio: 16px;
+  --sombra: 0 4px 16px rgba(18, 35, 58, 0.08);
+  --largura-max: 1200px;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  font-size: 1.0625rem;          /* 17px: leitura confortável */
+  line-height: 1.6;
+  color: var(--cor-texto);
+  background-color: var(--cor-creme);
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--cor-escura);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--cor-verde-escuro);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--cor-laranja);
+}
+
+/* Foco bem visível para quem navega pelo teclado */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--cor-laranja);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Texto visível apenas para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Link "Pular para o conteúdo" aparece ao receber foco */
+.pular-conteudo {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 100;
+  padding: 12px 20px;
+  background: var(--cor-escura);
+  color: var(--cor-creme);
+  font-weight: 700;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.2s;
+}
+
+.pular-conteudo:focus {
+  top: 0;
+  color: var(--cor-creme);
+}
+
+/* ---------- 3. Cabeçalho e menu ---------- */
+.cabecalho {
+  background: var(--cor-branco);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.cabecalho__interno {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cor-escura);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.logo__icone {
+  flex-shrink: 0;
+}
+
+.logo__texto strong {
+  color: var(--cor-verde);
+}
+
+/* No celular, o menu rola na horizontal sem quebrar o layout */
+.menu__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 6px;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.menu__lista a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--cor-escura);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.menu__lista a:hover {
+  background: var(--cor-verde-claro);
+  color: var(--cor-verde-escuro);
+}
+
+.menu__lista a[aria-current="page"] {
+  background: var(--cor-verde);
+  color: var(--cor-branco);
+}
+
+/* ---------- 4. Botões ---------- */
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.botao {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.botao:hover {
+  transform: translateY(-2px);
+}
+
+.botao--primario {
+  background: var(--cor-verde);
+  color: var(--cor-branco);
+}
+
+.botao--primario:hover {
+  background: var(--cor-verde-escuro);
+  color: var(--cor-branco);
+}
+
+.botao--secundario {
+  border-color: var(--cor-verde);
+  color: var(--cor-verde-escuro);
+}
+
+.botao--secundario:hover {
+  background: var(--cor-verde-claro);
+  color: var(--cor-verde-escuro);
+}
+
+.botao--claro {
+  background: var(--cor-creme);
+  color: var(--cor-escura);
+}
+
+.botao--claro:hover {
+  background: var(--cor-branco);
+  color: var(--cor-escura);
+}
+
+.link-seta {
+  font-weight: 700;
+}
+
+.link-seta::after {
+  content: " →";
+}
+
+/* ---------- 5. Destaque (hero) ---------- */
+.destaque {
+  padding: 48px 0;
+  background: linear-gradient(180deg, var(--cor-branco) 0%, var(--cor-creme) 100%);
+}
+
+.destaque__interno {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.selo {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--cor-verde-claro);
+  color: var(--cor-verde-escuro);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.destaque__descricao {
+  font-size: 1.2rem;
+  max-width: 34em;
+}
+
+.destaque__imagem {
+  margin: 0;
+}
+
+/* ---------- 6. Seções ---------- */
+.secao {
+  padding: 56px 0;
+}
+
+.secao--clara {
+  background: var(--cor-branco);
+}
+
+.secao--escura {
+  background: var(--cor-escura);
+  color: var(--cor-creme);
+}
+
+.secao--escura h2 {
+  color: var(--cor-creme);
+}
+
+.secao--escura a {
+  color: #9FE3C8;
+}
+
+.causa {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.valores {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.valores li {
+  background: var(--cor-branco);
+  border-left: 6px solid var(--cor-verde);
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: var(--sombra);
+}
+
+.valores__titulo {
+  display: block;
+  font-weight: 700;
+  color: var(--cor-escura);
+}
+
+/* Números de impacto */
+.numeros {
+  list-style: none;
+  margin: 24px 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.numeros__item {
+  background: #1A3352;
+  border-radius: var(--raio);
+  padding: 20px;
+}
+
+.numeros__valor {
+  display: block;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #9FE3C8;
+  line-height: 1.1;
+}
+
+.numeros__rotulo {
+  display: block;
+  margin-top: 6px;
+}
+
+.nota {
+  font-size: 0.95rem;
+  color: #C9D6E3;
+}
+
+/* Cartões de projetos */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.card {
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 24px;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card p {
+  flex-grow: 1;
+}
+
+.card__icone {
+  margin-bottom: 8px;
+}
+
+/* Passos numerados */
+.passos {
+  list-style: none;
+  counter-reset: passo;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.passos__item {
+  counter-increment: passo;
+  position: relative;
+  padding: 24px 24px 20px 84px;
+  background: var(--cor-creme);
+  border-radius: var(--raio);
+}
+
+.passos__item::before {
+  content: counter(passo);
+  position: absolute;
+  left: 24px;
+  top: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cor-verde);
+  color: var(--cor-branco);
+  font-weight: 800;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.passos__item p {
+  margin: 0;
+}
+
+/* Acessibilidade */
+.acessivel {
+  border: 2px dashed var(--cor-verde);
+  border-radius: var(--raio);
+  padding: 28px 24px;
+  background: var(--cor-branco);
+}
+
+/* Notícias */
+.noticias {
+  display: grid;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.noticia {
+  border-top: 4px solid var(--cor-verde);
+  padding-top: 14px;
+}
+
+.noticia time {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cor-laranja);
+}
+
+.noticia h3 {
+  margin-top: 4px;
+}
+
+.noticia h3 a {
+  color: var(--cor-escura);
+  text-decoration: none;
+}
+
+.noticia h3 a:hover {
+  text-decoration: underline;
+  color: var(--cor-verde-escuro);
+}
+
+/* Chamada final */
+.chamada {
+  background: var(--cor-verde);
+  color: var(--cor-creme);
+  padding: 56px 0;
+  text-align: center;
+}
+
+.chamada h2 {
+  color: var(--cor-creme);
+}
+
+.chamada__interno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------- 7. Rodapé ---------- */
+.rodape {
+  background: var(--cor-escura);
+  color: #C9D6E3;
+  padding-top: 40px;
+  font-size: 0.95rem;
+}
+
+.rodape a {
+  color: #9FE3C8;
+}
+
+.rodape__interno {
+  display: grid;
+  gap: 28px;
+}
+
+.rodape__titulo {
+  color: var(--cor-creme);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.rodape address {
+  font-style: normal;
+}
+
+.rodape__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.rodape__links li {
+  margin-bottom: 6px;
+}
+
+.rodape__copy {
+  text-align: center;
+  margin: 32px 0 0;
+  padding: 16px;
+  border-top: 1px solid #2A4060;
+}
+
+/* ---------- 8. Tablets (a partir de 768px) ---------- */
+@media (min-width: 768px) {
+  h1 { font-size: 3.25rem; }
+  h2 { font-size: 2rem; }
+
+  .cabecalho__interno {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu__lista {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  .numeros {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cards,
+  .passos,
+  .noticias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .rodape__interno {
+    grid-template-columns: 2fr 1fr 2fr;
+  }
+}
+
+/* ---------- 9. Desktop (a partir de 1024px) ---------- */
+@media (min-width: 1024px) {
+  .destaque {
+    padding: 80px 0;
+  }
+
+  .destaque__interno {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .destaque__texto,
+  .destaque__imagem {
+    flex: 1;
+  }
+
+  .causa {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .causa > div,
+  .valores {
+    flex: 1;
+  }
+
+  .secao {
+    padding: 80px 0;
+  }
+
+  /* Menu cabe em uma linha só no desktop */
+  .menu__lista {
+    gap: 2px;
+    flex-wrap: nowrap;
+  }
+
+  .menu__lista a {
+    padding: 8px 10px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------- 10. Menos movimento para quem prefere ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+
+  .botao:hover {
+    transform: none;
+  }
+}

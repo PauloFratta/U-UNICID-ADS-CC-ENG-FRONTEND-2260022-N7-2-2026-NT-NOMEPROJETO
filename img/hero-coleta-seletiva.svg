@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 440" width="560" height="440">
+  <title>Ilustração de coleta seletiva</title>
+  <!-- fundo -->
+  <circle cx="280" cy="210" r="200" fill="#E3EFE8"/>
+  <circle cx="440" cy="90" r="38" fill="#F2C89A"/>
+  <!-- chão -->
+  <rect x="40" y="360" width="480" height="10" rx="5" fill="#12233A" opacity="0.15"/>
+
+  <!-- lixeiras da coleta seletiva (padrão de cores CONAMA) -->
+  <g>
+    <rect x="70" y="230" width="80" height="130" rx="10" fill="#1F5FA8"/>
+    <rect x="62" y="218" width="96" height="18" rx="6" fill="#174A84"/>
+    <text x="110" y="305" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">PAPEL</text>
+  </g>
+  <g>
+    <rect x="170" y="230" width="80" height="130" rx="10" fill="#C0392B"/>
+    <rect x="162" y="218" width="96" height="18" rx="6" fill="#962D22"/>
+    <text x="210" y="305" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">PLÁSTICO</text>
+  </g>
+  <g>
+    <rect x="270" y="230" width="80" height="130" rx="10" fill="#1E8449"/>
+    <rect x="262" y="218" width="96" height="18" rx="6" fill="#176638"/>
+    <text x="310" y="305" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">VIDRO</text>
+  </g>
+  <g>
+    <rect x="370" y="230" width="80" height="130" rx="10" fill="#E5B80B"/>
+    <rect x="362" y="218" width="96" height="18" rx="6" fill="#B89409"/>
+    <text x="410" y="305" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#12233A" text-anchor="middle">METAL</text>
+  </g>
+
+  <!-- símbolo de reciclagem -->
+  <g transform="translate(280 120)" fill="none" stroke="#12775A" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -52 20 A 60 60 0 0 1 -10 -58"/>
+    <path d="M 22 -56 A 60 60 0 0 1 58 10"/>
+    <path d="M 40 46 A 60 60 0 0 1 -38 46"/>
+  </g>
+  <g transform="translate(280 120)" fill="#12775A">
+    <polygon points="-24,-74 2,-56 -26,-40"/>
+    <polygon points="70,-6 54,24 40,-4"/>
+    <polygon points="-50,62 -36,32 -24,62"/>
+  </g>
+
+  <!-- folhas -->
+  <path d="M 470 360 C 470 310 500 290 520 280 C 520 320 500 350 470 360 Z" fill="#12775A"/>
+  <path d="M 60 360 C 50 320 30 305 14 300 C 18 335 36 355 60 360 Z" fill="#12775A" opacity="0.8"/>
+</svg>
